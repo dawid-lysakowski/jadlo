@@ -1,69 +1,41 @@
-# React + TypeScript + Vite
+# Jadłodzielnia Szczecin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Struktura projektu
 
-Currently, two official plugins are available:
+### `src/components`
+Zawiera komponenty wielokrotnego użytku, takie jak `TopBar`, `TopNavigation`, `Footer`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### `src/pages`
+Zawiera strony aplikacji, np. `Home`, `Aktualnosci`, `Onas`, `Zasady`, `Kontakt`.
 
-## Expanding the ESLint configuration
+### `src/styles`
+Zawiera globalne style aplikacji, np. `App.css`.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### `src/assets`
+Zawiera zasoby statyczne, takie jak obrazy (`images`) i czcionki (`fonts`).
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### `public`
+Zawiera favicon i inne pliki publiczne dostępne dla serwera.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### `index.html`
+Główny plik HTML aplikacji.  
+W tym pliku powinny być dodawane lub modyfikowane m.in.:
+- Zawartość sekcji `<head>`, np. tytuł strony (`<title>`), meta tagi (SEO, charset, viewport), linki do favicon i czcionek.
+- Kontener `<div id="root">` lub podobny, w którym renderowana jest aplikacja.
+- Linki do plików manifestu lub innych zasobów publicznych.
+- Skrypty lub style globalne, które muszą być załadowane przed uruchomieniem aplikacji.
+- Inne elementy wymagane przez framework lub narzędzia (np. Vite).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### `vite.config.ts`
+Konfiguracja Vite dla projektu.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Jak uruchomić projekt
+1. Zainstaluj zależności:
+   ```bash
+   npm install
+   ```
+2. Uruchom projekt:
+   ```bash
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
