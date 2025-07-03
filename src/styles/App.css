@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Slab';
+  src: url('../assets/fonts/AlfaSlabOne-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-Regular.ttf');
+}
+
+:root {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #000;
+    background-color: #fff;
+}
+
+main {
+    flex: 1;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.TopBar, .Footer {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background-color: #333;
+    color: #ccc;
+    font-size: 12px;
+}
+
+.TopBar button img {
+    height: 14px;
+    margin-left: 5px;
+}
+
+.TopNavigation, .TopBar > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.Logo {
+    padding: 20px;
+    margin-left: -20px;
+}
+
+.Menu {
+    margin-right: -20px;
+}
+
+.Menu ul, li {
+    display: flex;
+}
+
+.Menu a {
+    padding: 10px 20px;
+}
+
+.Hero {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.Footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
